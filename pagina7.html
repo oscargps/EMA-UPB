@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <title>SYSTEM</title>
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/estilos.css">
+      <link rel="stylesheet" href="css/estilos2.css">
+      <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+   </head>
+
+   <body style="background-color:#D6EAF8">
+            <header>
+               <div id="encabezado">
+                     <ul>
+                    <li><a href="index.php ">SYSTEM</a></li>
+                    <li><a href="tabla_historica1.html">TABLA HISTÓRICA</a></li>
+                    <li><a href=https://www.upb.edu.co>UPB</a></li>
+                   </ul>
+                </div>
+               </header>
+             
+
+  
+       <div id="container1">
+         <div style="background-color:#D6EAF8  ; padding-top: 30px; padding-bottom: 30px; ">
+            <img src="img/upblogomonteria.png" width="240" height="100">  
+         </div>
+      </div>
+
+        <div id="container">
+      <div class="row">
+         <div class="col-lg-12">
+            <div class="panel panel-default">
+               <div class="panel-heading" style="background-color: #0000FF">
+                  <center>
+                  <form method="post" name="frm" style="display:inline">
+                     
+                         <font color=white><h2><b> Ingrese el rango de fechas en el que desea ver los datos</b></h2></font>
+                          <font color=white><h3><b>Fecha inicial</b></h3></font>
+                           <input type="datetime-local" name="fecha1" id="fecha1"><br>
+                            <br> 
+                            <font color=white><h3><b>Fecha final</b></h3></font>
+                            <input type="datetime-local" name="fecha2" id="fecha2"/><br>
+                             <font color=white><h2><b>Seleccione el dato que desea visualizar</b></h2></font>
+                            <input type="radio" name="gender" value="temperatura" checked><font color=white><b> Temperatura ambiental (°C)</b><br>
+                           <input type="radio" name="gender" value="humedad"><b>Humedad relativa (%)</b><br>
+                           <input type="radio" name="gender" value="velocidad_del_viento"><b> Velocidad del viento (Km/h)</b><br> 
+                           <input type="radio" name="gender" value="precipitacion"><b>Precipitaciones (mm)</b><br><br><br></font>
+                          <center>  <input type="button" id="enviar" value="Enviar" /><br/></center>
+                         </form>
+                  </center>
+                  <br>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+
+
+      <div class="row">
+         <div class="panel-body" style="background-color: #0000FF;">
+            <!--MOSTRAR GRÁFICO-->
+            <div id="curve_chart" style="width: 100%; height: 550px" >
+               
+            </div>
+         </div>
+
+      </div>
+      <script src="js/jquery.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+
+      <script type="text/javascript" src="https://www.google.com/jsapi" > </script>
+       <script type="text/javascript" src="https://www.google.com/jsapi?autoload={
+       'modules':[{
+       'name':'visualization',
+       'version':'1',
+       'packages':['corechart']
+       }]
+       }"></script>
+
+      
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" > </script>
+       <script type="text/javascript" src="https://www.google.com/jsapi" > </script>
+       <script type="text/javascript" src="https://www.google.com/jsapi?autoload={
+       'modules':[{
+       'name':'visualization',
+       'version':'1',
+       'packages':['corechart']
+       }]
+       }"></script> 
+
+      <script type="text/javascript">
+         $(function(){
+            mostrarGraficar();
+         });
+
+         
+
+         function mostrarGraficar(){
+            $("#enviar").on("click", function(){
+               var fecha1 = $("#fecha1").val(),
+                   fecha2 = $("#fecha2").val(),
+                   gender = $("input:radio[name=gender]:checked").val();
+
+               
+
+               google.setOnLoadCallback(dibujaGrafica(fecha1, fecha2, gender) );
+              
+            });
+         } 
+
+         function dibujaGrafica(fecha1, fecha2, gender) {
+
+             var data = $.ajax({
+                 url: "cargar1.php",
+                 method: "POST",
+                 dataType: "json",
+                 data: {fecha1: fecha1, fecha2: fecha2, gender: gender},
+                 async: false
+             }).responseText;
+
+             //para que se lea correctamente el array enviado por JSON usamos JSON.parse
+             var infoGraf = JSON.parse(data);
+             
+             if( infoGraf.length > 1 ){
+                  //Creamos y rellenamos la tabla de datos
+                var datoFinal = google.visualization.arrayToDataTable(infoGraf);
+
+                //en la parte de options puede personalizarse la gráfica, como títulos, colores...
+                var options = {
+                    title: '',
+                    curveType: 'function',
+                    legend: {
+                        position: 'top'
+                    },
+
+                    hAxis: {
+                        title: 'Fecha-Hora'
+                    },
+
+
+                    vAxis: {
+                        title: 'dato estacion 2'
+                    },
+
+                    colors: ['#5deccd', ]
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+                chart.draw(datoFinal, options);
+             }else{
+               $("#curve_chart").html("");
+               $("#curve_chart").html("No hay datos con respecto al rango de fechas establecido.").css( {"color":"red"});
+             }
+
+             
+         }
+
+      </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+*{
+	font-family: italic;
+}
+
+body{
+
+	
+	padding: 0;
+	margin: 0;
+
+}
+
+#slider{
+	height: 450px;
+	margin-top: 10px;
+	overflow: hidden;
+	width: 100%;
+
+	-webkit-box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+	-moz-box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+	-o-box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+}
+
+
+
+#container{
+	margin: 105px auto;
+	width: 850px;
+}
+
+
+#encabezado{
+	/*position:fixed;*/
+	background-color:#0000FF; /*barrita azul*/
+	text-align: left;
+
+}
+
+
+#encabezado ul{
+	margin: 0;
+	padding: 0;
+}
+
+#encabezado ul li{
+	list-style: none;
+	display: inline-block;
+	padding: 16px 10px;
+	margin-left: 50px;
+}
+
+#encabezado ul li a{
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 8px;
+	text-decoration: none;
+	display:inline-block;
+	}
+
+#encabezado ul li a:hover {
+				background-color:#666666;
+				padding: 16px 10px;
+			}
+
+
+h2{
+	color: #0404B4;
+	font-size: 28px;
+	margin-bottom: 50px;
+	margin-top: 50px;
+
+	-webkit-text-shadow: 1px 1px 7px rgba(0,0,0,0.5);
+	-moz-text-shadow: 1px 1px 7px rgba(0,0,0,0.5);
+	-o-text-shadow: 1px 1px 7px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 7px rgba(0,0,0,0.5);
+}
+
+.contenido{
+	background-color:  #0404B4;
+
+	-webkit-box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+	-moz-box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+	-o-box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 10px rgba(0,0,0,0.5);	
+}
+.contenido p{
+
+	font-size: 16px;
+	padding: 40px;
+}
+
+
+textarea{
+	height: 100px;
+	width: 400px;
+}
+
+.campo, textarea{
+	background: #eee;
+	border: 0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	width: 400px;
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.campo:focus, textarea:focus{
+	background: #fff;
+	outline: none;
+
+	-webkit-box-shadow: 0 0 10px #24607f;
+	-moz-box-shadow: 0 0 10px #24607f;
+	-o-box-shadow: 0 0 10px #24607f;
+	box-shadow: 0 0 10px #24607f;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

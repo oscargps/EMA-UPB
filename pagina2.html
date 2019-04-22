@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <title>SYSTEM</title>
+      <link rel="stylesheet" href="css/estilos2.css"/>
+      <script src="js/jquery.js"></script>
+      <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+   </head>
+   <body style="background-color:#D6EAF8 ;">
+
+      <header>
+         <div id="encabezado">
+            <ul>
+               <li><a href="index.php ">SYSTEM</a></li>
+               <li><a href="tabla_historica1.html">TABLA HISTÓRICA</a></li>
+               <li><a href=https://www.upb.edu.co>UPB</a></li>
+            </ul>
+         </div>
+      </header>
+
+      <div id="container1">
+         <div style="background-color:#D6EAF8  ; padding-top: 30px; padding-bottom: 30px; ">
+            <img src="img/upblogomonteria.png" width="240" height="100">  
+         </div>
+      </div>
+
+      <div id= "container2"  >
+      <div style="background-color: #5882FA;">
+      <center>
+      <br>
+            <form action= "temporal2.php" method="post" name="frm" >
+
+         <font color=white><h2><b> Ingrese el rango de fechas en el que desea ver los datos</b></h2></font>
+             <font color=white><h3><b>Fecha inicial</b></h3></font>
+        
+         <input type="datetime-local" name="fecha1" />
+         <br> 
+         <font color=white><h3><b>Fecha final</b></h3></font>
+         <input type="datetime-local" name="fecha2" /><br>
+         <font color=white><h2><b>Seleccione el dato que desea visualizar</b></h2></font>
+         
+         <input type="radio" name="gender" value="temperatura" checked><font color=white><b> Temperatura ambiental (°C)</b><br>
+         <input type="radio" name="gender" value="humedad"><b>Humedad relativa (%)</b><br>
+         <input type="radio" name="gender" value="velocidad_del_viento"><b> Velocidad del viento (Km/h)</b><br> 
+         <input type="radio" name="gender" value="direccion_del_viento"><b> Direccion del viento </b><br>
+         <input type="radio" name="gender" value="precipitacion"><b>Precipitaciones (mm)</b><br><br><br>
+         <input type="radio" name="gender" value="todo"><b> Mostrar tabla completa</b></font><br><br><br>
+         <input type="submit" value="Enviar" class="button" ><br>
+         </form>
+
+      <br>
+      <br>
+      </center>
+      </div>
+        </div>
+        <br>
+   </body>
+</html>

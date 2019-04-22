@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <title>SYSTEM</title>
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/estilos.css">
+       <link rel="stylesheet" href="css/estilos2.css">
+      <script src="js/jquery.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <!--Librerias de la tabla exportacion-->
+      <script type="text/javascript" src="js/tablaexportacion1.js"></script> 
+      <!--<script type="text/javascript" src="js/fecha.js"></script> -->
+      <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.bootstrap.min.css" rel="stylesheet">
+      <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.bootstrap.min.js"></script>
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+      <script type="text/javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/pdfmake.min.js"></script>
+      <script type="text/javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js"></script>
+      <script type="text/javascript" src="//cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+      <script type="text/javascript" src="//cdn.datatables.net/buttons/1.3.1/js/buttons.print.min.js"></script>
+      <script type="text/javascript" src="//cdn.datatables.net/buttons/1.3.1/js/buttons.colVis.min.js"></script>
+      <style>
+         tr:hover { 
+         background: #eff9f9; 
+         }
+         tr, th{
+         text-align: center;
+         }
+      </style>
+   </head>
+   <body  style="background-color:#D6EAF8 ">
+
+     <header>
+         <div id="encabezado">
+            <ul>
+               <li><a href="index.php ">SYSTEM</a></li>
+               <li><a href="tabla_historica1.html">TABLA HISTÓRICA</a></li>
+               <li><a href=https://www.upb.edu.co>UPB</a></li>
+            </ul>
+         </div>
+      </header>
+
+       <div id="container1">
+         <div style="background-color:#D6EAF8  ; padding-top: 30px; padding-bottom: 30px; ">
+            <img src="img/upblogomonteria.png" width="240" height="100">  
+         </div>
+      </div>
+
+    
+    
+      <div class="container-fluid">
+      <!--div container-->
+      <div class= "rows">
+      <div class="col-lg-12">
+      <div class="panel panel-default" style="color: #0000FF">
+         <div class="panel-heading" style="background-color: #0000FF">
+            <h3 class="panel-title" align="center"><font color=white><b><i class="fa fa-th-list "></i>TABLA HISTÓRICA</b> </font></h3>
+           
+         </div>
+         <div style="overflow-x:auto;">
+            <div class="panel-body">
+               <!--botones de busqueda por fecha-->
+               <div class="table-responsive">
+                  <br />
+                  <div class="row">
+                     <form id="form-medidas" action =php/cargaDatosfecha.php method="POST">
+                        <div class="col-md-3">
+                           Fecha inicial <input type="datetime-local" name="desde" id="bd-desde" class="form-control"/><br>
+                        </div>
+                        <div class="col-md-3">
+                           Fecha final <input type="datetime-local" name="hasta" id="bd-hasta" class="form-control"/><br>       
+                        </div>
+                        <div class="col-md-3">
+                           <br> <input type="button"  name="buscar" method="POST" id="buscar" value="buscar" class="btn btn-info"/>
+                        </div>
+                     </form>
+                     
+                     <table id="tablaexportacion1" class="table table-condensed table-bordered" style="background-color:#CEF6F5" cellspacing="0" width="100%" >
+                        <thead>
+                           <tr>
+                              <th>ESTACIÓN</th>
+                              <th>TEMPERATURA</th>
+                              <th>HUMEDAD</th>
+                              <th>PRECIPITACIÓN</th>
+                              <th>VELOCIDAD DEL VIENTO</th>
+                              <th>DIRECCION DEL VIENTO</th>
+                              <th>FECHA</th>
+                           </tr>
+                        </thead>
+                     </table>
+                  
+                           <div id="tablaexportacion1" align="center" > </div>
+
+                   
+                     <!--aqui fin los controles-->
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+     </div>
+     </div>
+     </div>
+     
+     
+  <!-- </body>-->
+</html>
+
+
+
+   
